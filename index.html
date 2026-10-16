@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ITSKHAY | Backlink Agent</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">IK</span><div><strong>ITSKHAY</strong><small>BACKLINK AGENT</small></div></div>
+      <div class="nav-label">WORKSPACE</div>
+      <button class="nav-item active" data-view="overview">◫ <span>Overview</span></button>
+      <button class="nav-item" data-view="prospects">⌕ <span>Find prospects</span></button>
+      <button class="nav-item" data-view="audit">✓ <span>Backlink audit</span></button>
+      <div class="sidebar-bottom"><span class="status-dot"></span> Free stack · Google Sheets<br><small>GitHub Pages + Apps Script</small></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><p class="eyebrow">ITSKHAY / SEO WORKSPACE</p><h1 id="page-title">Backlink overview</h1></div><div class="user-pill"><span class="avatar">I</span><span id="user-label">Admin</span><button id="logout" class="ghost hidden">Log out</button></div></header>
+      <section id="login-panel" class="login-wrap">
+        <div class="login-card"><div class="brand-mark large">IK</div><p class="eyebrow">SECURE WORKSPACE</p><h2>Welcome back.</h2><p class="muted">Sign in to manage your backlink opportunities and audit existing links.</p>
+          <form id="login-form"><label>Login ID<input id="username" autocomplete="username" required placeholder="Your admin login ID"></label><label>Password<input id="password" type="password" autocomplete="current-password" required placeholder="Your password"></label><button class="primary full" type="submit">Secure login <span>→</span></button><p id="login-error" class="error"></p></form>
+          <p class="tiny muted">Your credentials are checked by Google Apps Script and are not stored in this page.</p>
+        </div>
+      </section>
+      <section id="dashboard" class="hidden">
+        <div class="hero"><div><p class="eyebrow light">BACKLINK INTELLIGENCE</p><h2>Build links that<br><em>move the needle.</em></h2><p>Discover relevant opportunities, avoid duplicates, and keep your live links healthy.</p></div><div class="hero-orbit"><span>DA</span><span>PA</span><span>SS</span><b>SEO<br>CORE</b></div></div>
+        <div class="metrics"><div class="metric"><span>Tracked prospects</span><strong id="total-count">—</strong><small>From your existing sheet</small></div><div class="metric"><span>Live links</span><strong id="live-count">—</strong><small>Current main-sheet status</small></div><div class="metric"><span>Broken links</span><strong id="broken-count">—</strong><small>Moved for review</small></div><div class="metric"><span>High potential</span><strong id="potential-count">—</strong><small>Based on available metrics</small></div></div>
+        <div class="content-grid">
+          <section class="panel wide"><div class="panel-head"><div><p class="eyebrow">OPPORTUNITY FINDER</p><h3>Find relevant backlinks</h3></div><span class="chip">FREE DISCOVERY</span></div>
+            <form id="search-form" class="finder-form">
+              <div class="search-grid"><label>Niche / industry<input id="niche" placeholder="e.g. digital marketing agency" required></label><label>Target website<input id="target-url" placeholder="https://itskhay.com" value="https://itskhay.com"></label></div>
+              <div class="finder-options">
+                <label>Number of opportunities<select id="result-count"><option value="5">5 opportunities</option><option value="10" selected>10 opportunities</option><option value="20">20 opportunities</option><option value="30">30 opportunities</option><option value="50">50 opportunities</option></select></label>
+                <div class="category-picker"><span class="field-label">Backlink categories (choose any)</span><div class="category-options">
+                  <label class="check-option"><input type="checkbox" name="backlink-category" value="directories" checked> Business directories</label>
+                  <label class="check-option"><input type="checkbox" name="backlink-category" value="guest-posts" checked> Guest posts</label>
+                  <label class="check-option"><input type="checkbox" name="backlink-category" value="local-citations" checked> Local citations</label>
+                  <label class="check-option"><input type="checkbox" name="backlink-category" value="resource-pages"> Resource pages</label>
+                  <label class="check-option"><input type="checkbox" name="backlink-category" value="profiles"> Business profiles</label>
+                  <label class="check-option"><input type="checkbox" name="backlink-category" value="forums"> Relevant communities</label>
+                  <label class="check-option"><input type="checkbox" name="backlink-category" value="competitors"> Competitor backlink research</label>
+                  <label class="check-option"><input type="checkbox" name="backlink-category" value="broken-links"> Broken-link opportunities</label>
+                </div></div>
+              </div>
+              <button class="primary" type="submit">Find selected opportunities ↗</button>
+            </form>
+            <div id="search-results" class="search-results"><p class="muted">Choose how many opportunities you want and which backlink categories to explore.</p></div>
+          </section>
+          <section class="panel"><div class="panel-head"><div><p class="eyebrow">QUICK ADD</p><h3>Add a prospect</h3></div></div>
+            <form id="add-form" class="stack"><label>Website / directory name<input id="p-name" required placeholder="Website name"></label><label>Homepage / submission URL<input id="p-url" required placeholder="https://example.com/submit"></label><label>Category<input id="p-category" placeholder="Directory, guest post, local SEO"></label><div class="three"><label>DA<input id="p-da" type="number" min="0" max="100" placeholder="—"></label><label>PA<input id="p-pa" type="number" min="0" max="100" placeholder="—"></label><label>SS<input id="p-ss" type="number" min="0" max="100" placeholder="—"></label></div><label>Estimated traffic<input id="p-traffic" placeholder="e.g. 10k/month (optional)"></label><label>Conversion fit<select id="p-fit"><option value="">Select fit</option><option>High</option><option>Medium</option><option>Low</option></select></label><button class="primary full" type="submit">Add to sheet + skip duplicates</button><p id="add-message" class="message"></p></form>
+          </section>
+        </div>
+        <section class="panel table-panel"><div class="panel-head"><div><p class="eyebrow">YOUR GOOGLE SHEET</p><h3>Tracked backlink prospects</h3></div><div class="actions"><input id="table-filter" class="filter-input" placeholder="Filter records…"><button class="secondary" id="refresh">↻ Refresh</button><button class="primary" id="audit-btn">✓ Run backlink audit</button></div></div><div class="table-wrap"><table><thead id="table-head"></thead><tbody id="table-body"><tr><td>Loading sheet data…</td></tr></tbody></table></div><p id="table-note" class="tiny muted">Audit needs the actual page URL containing your link and the target URL it should point to.</p></section>
+        <section class="panel audit-panel"><div class="panel-head"><div><p class="eyebrow">AUDIT REPORT</p><h3>Latest audit result</h3></div></div><div id="audit-result" class="muted">Run an audit to check whether your published links are still present.</div></section>
+        <footer>Built for ITSKHAY · Free hosting stack · Metrics are only as reliable as the source entered.</footer>
+      </section>
+    </main>
+  </div>
+  <div id="toast" role="status" class="toast"></div>
+  <script src="app.js"></script>
+</body></html>
