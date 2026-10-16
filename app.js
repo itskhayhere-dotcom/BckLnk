@@ -1,4 +1,4 @@
-const API_URL = 'https://script.google.com/macros/s/AKfycbxzPGK7gCEDhhz8dST9WRFjOaEwsANJOBuMJK61NfV6M5ln4o0ISuTEzy8_nO6la5rf/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbypxBURrbapCXGfkJDw48w2BipKPk3BfzCP12X6bVly-FKuvdo4gBGTTE3niESPW-nr/exec';
 let token = '';
 let sheetData = {headers:[],rows:[],brokenCount:0};
 const $ = id => document.getElementById(id);
